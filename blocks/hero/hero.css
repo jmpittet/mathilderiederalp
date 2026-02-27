@@ -5,8 +5,21 @@
 
 .hero {
   position: relative;
+  isolation: isolate;
   padding: 40px 24px;
   min-height: 300px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(0 0 0 / 45%) 0%,
+    rgb(0 0 0 / 25%) 100%
+  );
+  z-index: -1;
 }
 
 .hero h1 {
@@ -18,7 +31,7 @@
 
 .hero picture {
   position: absolute;
-  z-index: -1;
+  z-index: -2;
   inset: 0;
   object-fit: cover;
   box-sizing: border-box;
